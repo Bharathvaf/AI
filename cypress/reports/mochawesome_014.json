@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-02T11:30:05.532Z",
+    "end": "2024-01-02T11:30:13.804Z",
+    "duration": 8272,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5fa60c3d-fafb-4425-8320-1ae58fdfa53c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\manager_assign_project.cy.js",
+      "file": "cypress\\e2e\\manager_assign_project.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4b7bbc4-660e-4e4d-8c5d-417881182812",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "manager select client and project",
+              "fullTitle": "template spec manager select client and project",
+              "timedOut": null,
+              "duration": 8224,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "debugger;\ncy.get(_login.default.email).type(\"kavirajanvaf07072021@gmail.com\");\ncy.get(_login.default.password).type(\"Sybrant@123\");\ncy.get(_login.default.subtitle).click('topRight');\ncy.get(_login.default.loginbutton).should('contain', 'Log In').click();\n//manager select client project\ncy.get(_dashboard.default.client).click();\ncy.get(_dashboard.default.clientvalue).click();\ncy.get(_dashboard.default.project).click();\ncy.get(_dashboard.default.projectvalue).click();\ncy.wait(2500);\ncy.get(_dashboard.default.r1drop).click();\n// cy.get(dash.r1dropiteams).eq(2).click();",
+              "err": {},
+              "uuid": "7832e52e-1ae8-430e-a00d-515d0f7355a4",
+              "parentUUID": "e4b7bbc4-660e-4e4d-8c5d-417881182812",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7832e52e-1ae8-430e-a00d-515d0f7355a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8224,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "xlsx": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

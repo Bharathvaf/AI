@@ -1,0 +1,201 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-02T11:29:03.755Z",
+    "end": "2024-01-02T11:29:58.988Z",
+    "duration": 55233,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "341ac6e5-043c-4eac-9675-c0dbe582c3b8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "correct login",
+              "fullTitle": "template spec correct login",
+              "timedOut": null,
+              "duration": 26748,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).click();\ncy.get(_login_label.default.email).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login_label.default.email).should('have.css', 'font-family', '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"');\ncy.wait(2500);\ncy.get(_login.default.email).should('have.css', 'font-size', '13px');\ncy.wait(2500);\ncy.get(_login.default.email).should('have.css', 'font-weight', '400');\ncy.wait(2500);\ncy.get(_login_label_error.default.email_error).should(\"be.visible\").and(\"contain\", \"Email is required\");\ncy.wait(2500);\ncy.get(_login.default.email).type(\"sybrant@gmail.com\");\ncy.get(_login.default.password).click();\ncy.get(_login_label.default.password).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login_label.default.password).should('have.css', 'font-family', '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"');\ncy.wait(2500);\ncy.get(_login.default.password).should('have.css', 'font-size', '13px');\ncy.wait(2500);\ncy.get(_login_label_error.default.password_error).should(\"be.visible\").and(\"contain\", \"Password is required\");\ncy.get(_login.default.password).type(\"Sybrant@123\");\ncy.get(_login.default.subtitle).click();\ncy.wait(2500);\ncy.get(_login.default.loginbutton).should(\"be.visible\").and('have.text', \"Log In\").click();\ncy.url('includes', \"main/tree'\");\nconst api = Cypress.env(\"apiurl\");\ncy.request({\n  method: \"POST\",\n  url: `${api}/auth/user/login`,\n  body: {\n    email: \"sybrant@gmail.com\",\n    password: \"Sybrant@123\"\n  }\n}).then(res => {\n  expect(res.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "950fa428-0697-4fee-8bc3-b50779663476",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "without enter email",
+              "fullTitle": "template spec without enter email",
+              "timedOut": null,
+              "duration": 1006,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).type(\" \");\ncy.get(_login.default.password).type('Sybrant@123');\ncy.get(_login.default.subtitle).click();\ncy.get(_login.default.loginbutton).then(btn => {\n  if (cy.get(btn).should('be.disabled')) {\n    cy.log('btn is disabled');\n  }\n});",
+              "err": {},
+              "uuid": "dd2a8da8-eb32-4d50-a616-9a68baa98763",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "without enter password",
+              "fullTitle": "template spec without enter password",
+              "timedOut": null,
+              "duration": 988,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).type(\"sybrant@gmail.com\");\ncy.get(_login.default.password).type('{backspace}');\ncy.get(_login.default.subtitle).click();\ncy.get(_login.default.loginbutton).then(btn => {\n  if (cy.get(btn).should('be.disabled')) {\n    cy.log('btn is disabled');\n  }\n});",
+              "err": {},
+              "uuid": "70d03dc0-7e6a-4ac5-a319-300a1cf234e0",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "click eye icon to visible enter password",
+              "fullTitle": "template spec click eye icon to visible enter password",
+              "timedOut": null,
+              "duration": 3710,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).type(\"sybrant@gmail.com\");\ncy.get(_login.default.password).type(\"Sybrant@123\");\ncy.get(_login.default.eyeicon).should('be.visible').click();\ncy.wait(2500);\ncy.get(_login.default.password).should('be.visible');\ncy.get(_login.default.eyeicon).click();",
+              "err": {},
+              "uuid": "7f8b9d0b-a2f4-41fe-91e7-5da474b44f4f",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "incorrect email",
+              "fullTitle": "template spec incorrect email",
+              "timedOut": null,
+              "duration": 11842,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).click();\ncy.get(_login_label.default.email).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login.default.email).should('have.css', 'font-size', '13px');\ncy.wait(2500);\ncy.get(_login_label_error.default.email_error).should(\"be.visible\").and(\"contain\", \"Email is required\");\ncy.wait(2500);\ncy.get(_login.default.email).type(\"sybrant1@gmail.com\");\ncy.get(_login.default.password).click();\ncy.get(_login_label.default.password).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login_label_error.default.password_error).should(\"be.visible\").and(\"contain\", \"Password is required\");\ncy.get(_login.default.password).type(\"Sybrant@123\");\ncy.get(_login.default.subtitle).click();\ncy.get(_login.default.loginbutton).should(\"be.visible\").and('have.text', \"Log In\").click();\ncy.get(_login_label_error.default.toaster_error).should(\"be.visible\").and(\"contain\", \"Invalid Credential\");\nconst api = Cypress.env(\"apiurl\");\ncy.request({\n  method: \"POST\",\n  url: `${api}/auth/user/login`,\n  failOnStatusCode: false,\n  body: {\n    email: \"sybrant@gmail1.com\",\n    password: \"Sybrant@123\"\n  }\n}).then(res => {\n  expect(res.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "233323f1-1c2b-4c87-ba52-45335da8b564",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "incorrect password",
+              "fullTitle": "template spec incorrect password",
+              "timedOut": null,
+              "duration": 10594,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).click();\ncy.get(_login_label.default.email).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login_label_error.default.email_error).should(\"be.visible\").and(\"contain\", \"Email is required\");\ncy.wait(2500);\ncy.get(_login.default.email).type(\"sybrant@gmail.com\");\ncy.get(_login.default.password).click();\ncy.get(_login_label.default.password).click(\"topRight\");\ncy.wait(2500);\ncy.get(_login_label_error.default.password_error).should(\"be.visible\").and(\"contain\", \"Password is required\");\ncy.get(_login.default.password).type(\"Sybrant@1234\");\ncy.get(_login.default.subtitle).click();\ncy.get(_login.default.loginbutton).should(\"be.visible\").and('have.text', \"Log In\").click();\ncy.get(_login_label_error.default.toaster_error).should(\"be.visible\").and(\"contain\", \"Invalid Password\");\nconst api = Cypress.env(\"apiurl\");\ncy.request({\n  method: \"POST\",\n  url: `${api}/auth/user/login`,\n  failOnStatusCode: false,\n  body: {\n    email: \"sybrant@gmail.com\",\n    password: \"Sybrant@1234\"\n  }\n}).then(res => {\n  expect(res.status).to.eq(400);\n});",
+              "err": {},
+              "uuid": "bb22fbe0-20de-4bdd-a3ef-8ce06d5279f7",
+              "parentUUID": "51b548ee-3083-4e95-b6f4-1936161fc9b9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "950fa428-0697-4fee-8bc3-b50779663476",
+            "dd2a8da8-eb32-4d50-a616-9a68baa98763",
+            "70d03dc0-7e6a-4ac5-a319-300a1cf234e0",
+            "7f8b9d0b-a2f4-41fe-91e7-5da474b44f4f",
+            "233323f1-1c2b-4c87-ba52-45335da8b564",
+            "bb22fbe0-20de-4bdd-a3ef-8ce06d5279f7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54888,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "xlsx": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

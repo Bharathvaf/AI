@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-12-29T09:47:16.923Z",
+    "end": "2023-12-29T09:47:34.428Z",
+    "duration": 17505,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ab421fff-e1b7-4107-aa71-a0e40ae815de",
+      "title": "",
+      "fullFile": "cypress\\e2e\\project.cy.js",
+      "file": "cypress\\e2e\\project.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c7e92eee-ec07-4197-930a-540b57b8ecf7",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 17450,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_user.default.logo).should(\"be.visible\");\ncy.get(_user.default.profile).click();\ncy.get(_user.default.adminmenu).click();\ncy.get(_project.default.project_tab).should(\"be.visible\").and(\"contain\", \"Project\").click();\ncy.get(_project.default.addbutton).should(\"be.visible\").and(\"contain\", \"Add\").click();\n//project name validation\ncy.get(_project.default.pname).click();\ncy.get(_project_label.default.projectname).click(\"topRight\");\ncy.get(_project_label_error.default.pname).should(\"be.visible\").and(\"contain\", \"Project Name is required\");\n// clientname validation\ncy.get(_project.default.cname).click();\ncy.get(_project_label.default.client).click(\"topRight\");\ncy.get(_project_label.default.client).click(\"topRight\");\ncy.get(_project_label_error.default.cerror).should(\"be.visible\").and(\"contain\", \"Client is required\");\n// template validation\ncy.get(_project.default.tname).click();\ncy.get(_project_label.default.template).click(\"topRight\");\ncy.get(_project_label.default.template).click(\"topRight\");\ncy.get(_project_label_error.default.terror).should(\"be.visible\").and(\"contain\", \"Template is required\");\ncy.get(_project.default.cancel).should(\"be.visible\").and(\"contain\", \"Cancel\").click();\n// permision\ncy.get(_project.default.permission).click();\ncy.wait(2500);\ncy.get(_project.default.cancel).click();",
+              "err": {},
+              "uuid": "694abd8a-9a23-4ae9-8434-f98019ce838a",
+              "parentUUID": "c7e92eee-ec07-4197-930a-540b57b8ecf7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "694abd8a-9a23-4ae9-8434-f98019ce838a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17450,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "xlsx": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

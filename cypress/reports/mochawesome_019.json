@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-01-10T05:24:28.830Z",
+    "end": "2024-01-10T05:24:46.319Z",
+    "duration": 17489,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a970a250-4b75-400a-a6d8-c6d33f413d90",
+      "title": "",
+      "fullFile": "cypress\\e2e\\client.cy.js",
+      "file": "cypress\\e2e\\client.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43aea4cc-6762-4106-a61b-e3de6a215272",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 17438,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_login.default.email).type('sybrant@gmail.com');\ncy.get(_login.default.password).type('Sybrant@123');\ncy.wait(2500);\ncy.get(_login.default.subtitle).click('topRight');\ncy.wait(2500);\ncy.get(_login.default.loginbutton).should('have.text', 'Log In').click();\ncy.get(_user.default.logo).should('be.visible');\ncy.get(_user.default.profile).click();\ncy.get(_user.default.adminmenu).click();\n//client start\ncy.get(_client.default.clienttab).should(\"be.visible\").and(\"contain\", \"Client\").click();\n//click add button\ncy.get(_client.default.clientadd).should(\"be.visible\").and(\"contain\", \"Add\").click();\n//check name validation;\ncy.get(_client.default.name).click();\ncy.get(_client_label.default.client_name).click(\"bottom\");\ncy.get(_client_label_error.default.name_error).should('be.visible').and(\"contain\", \"Name is Required\");\n// check country validation\ncy.get(_client.default.country).click();\ncy.get(_client_label.default.client_country).click(\"bottom\");\ncy.get(_client_label.default.client_country).click(\"bottom\");\ncy.get(_client_label_error.default.country_error).should(\"be.visible\").and(\"contain\", \"Country is Required\");\n//check state valiation\ncy.get(_client.default.state).click();\ncy.get(_client_label.default.client_country).click(\"bottom\");\ncy.get(_client_label.default.client_country).click(\"bottom\");\ncy.wait(2500);\ncy.get(_client_label_error.default.state_error).should(\"be.visible\").and(\"contain\", \"State is Required\");\n// check city validation\ncy.get(_client.default.city).click();\ncy.get(_client_label.default.client_city).click(\"bottom\");\ncy.get(_client_label.default.client_city).click(\"bottom\");\ncy.get(_client_label_error.default.city_error).should(\"be.visible\").and(\"contain\", \"City is Required\");\n//click cancel \ncy.get(_client.default.client_cancel).should(\"be.visible\").and(\"contain\", \"Cancel\").click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#pr_id_13_header_1`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#pr_id_13_header_1`, but never found it.\n    at Context.eval (webpack://ai/./cypress/e2e/client.cy.js:24:31)",
+                "diff": null
+              },
+              "uuid": "5739006e-c092-448d-80b3-8e8a9618580d",
+              "parentUUID": "43aea4cc-6762-4106-a61b-e3de6a215272",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5739006e-c092-448d-80b3-8e8a9618580d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17438,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "xlsx": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

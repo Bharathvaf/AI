@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-12-29T09:47:48.939Z",
+    "end": "2023-12-29T09:48:00.488Z",
+    "duration": 11549,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5cd088c1-cc7c-4392-b5f2-d4fc53926724",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user.cy.js",
+      "file": "cypress\\e2e\\user.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4ceccbac-c12e-4b06-99c4-0f2fa0a23b2d",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "contains correct elements when logged out",
+              "fullTitle": "template spec contains correct elements when logged out",
+              "timedOut": null,
+              "duration": 11454,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const sstoken = [];\ncy.visit('');\ncy.get(_login.default.email).type('info@visualappfoundry.com'), cy.get(_login.default.password).type('Sybrant@123'), cy.get(_login.default.subtitle).click('topRight'), cy.get(_login.default.loginbutton).click();\ncy.get(_user.default.logo).should('be.visible');\ncy.wait(2500);\ncy.window().then(win => {\n  const ssvalue = win.sessionStorage;\n  var token = ssvalue.getItem('token');\n  sstoken.push(token);\n});\n//ADD user\ncy.get(_user.default.profile).click();\ncy.wait(2500);\ncy.get(_user.default.adminmenu).click();\nconst api = Cypress.env('apiurl');\ncy.request({\n  method: \"GET\",\n  url: `${api}/auth/get/user/0`,\n  headers: {\n    authorization: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZU5hbWUiOiJBZG1pbiIsImV4cCI6MTcwMzE3Mjg4MSwiaWF0IjoxNzAzMTUxMjgxfQ.KEnDUY-MgZW2TikKTKgwmiM5xRJPOhKcwMgk6TgPIIs\"\n  }\n}).then(res => {\n  expect(res.status).to.eq(200);\n});\ncy.get(_user.default.useradd).should('have.text', 'Add').click();\n//check first name validation\ncy.get(_user.default.firstname).click();\ncy.get(_user_label.default.firstname).click(\"topRight\");\ncy.get(_user_label_error.default.ferror).should('be.visible').and(\"contain\", \"FirstName is required\");\n//check last name validation\ncy.get(_user.default.lastname).click();\ncy.get(_user_label.default.lastname).click(\"topRight\");\ncy.get(_user_label_error.default.lerror).should(\"be.visible\").and(\"contain\", \"LastName is required\");\n// check email validation \ncy.get(_user.default.email).click();\ncy.get(_user_label.default.email).click(\"topRight\");\ncy.get(_user_label_error.default.emerror).should('be.visible').and(\"contain\", \"Email is required\");\nconst emailformate = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\ncy.get(_user.default.email).type(\"bharathbca17@gmail.com\");\ncy.get(_user.default.email).invoke(\"val\").should('match', emailformate);\n//check mobile number validation\ncy.get(_user.default.mobilnumber).click();\ncy.get(_user_label.default.mobile).click(\"topRight\");\ncy.get(_user_label_error.default.merror).should('be.visible').and(\"contain\", \"Mobile Number is required\");\nconst validNumber = '6385597425';\ncy.get(_user.default.mobilnumber).type(validNumber);\ncy.get(_user.default.mobilnumber).invoke(\"val\").then(vnumber => {\n  expect(vnumber).to.have.length(10);\n});\n//check role validation\ncy.get(_user.default.roleclick).click();\ncy.get(_user_label.default.role).click(\"topRight\");\ncy.get(_user_label.default.role).click(\"topRight\");\ncy.get(_user_label_error.default.rerror).should(\"be.visible\").and(\"contain\", \"Role is required\");\ncy.get(_user.default.cancelbtn).should('be.visible').and(\"contain\", \"Cancel\").click();",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://192.168.0.17:1706/api/v1/auth/get/user/0\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://192.168.0.17:1706/api/v1/auth/get/user/0\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZU5hbWUiOiJBZG1pbiIsImV4cCI6MTcwMzE3Mjg4MSwiaWF0IjoxNzAzMTUxMjgxfQ.KEnDUY-MgZW2TikKTKgwmiM5xRJPOhKcwMgk6TgPIIs\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.6.1 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Fri, 29 Dec 2023 09:48:00 GMT\",\n  \"server\": \"WSGIServer/0.2 CPython/3.12.0\",\n  \"content-type\": \"application/json\",\n  \"vary\": \"Accept, origin, Cookie\",\n  \"allow\": \"OPTIONS, GET\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"60\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"cross-origin-opener-policy\": \"same-origin\"\n}\nBody: {\n  \"code\": 401,\n  \"error\": \"Token has expired\",\n  \"message\": \"Invalid\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://192.168.0.17:1706/api/v1/auth/get/user/0\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://192.168.0.17:1706/api/v1/auth/get/user/0\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZU5hbWUiOiJBZG1pbiIsImV4cCI6MTcwMzE3Mjg4MSwiaWF0IjoxNzAzMTUxMjgxfQ.KEnDUY-MgZW2TikKTKgwmiM5xRJPOhKcwMgk6TgPIIs\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.6.1 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Fri, 29 Dec 2023 09:48:00 GMT\",\n  \"server\": \"WSGIServer/0.2 CPython/3.12.0\",\n  \"content-type\": \"application/json\",\n  \"vary\": \"Accept, origin, Cookie\",\n  \"allow\": \"OPTIONS, GET\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"60\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"cross-origin-opener-policy\": \"same-origin\"\n}\nBody: {\n  \"code\": 401,\n  \"error\": \"Token has expired\",\n  \"message\": \"Invalid\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:133450:72)\n    at tryCatcher (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://192.168.0.131:86/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://ai/./cypress/e2e/user.cy.js:29:5)",
+                "diff": null
+              },
+              "uuid": "3fa36733-2ab8-4cc0-b391-70122268f9ab",
+              "parentUUID": "4ceccbac-c12e-4b06-99c4-0f2fa0a23b2d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3fa36733-2ab8-4cc0-b391-70122268f9ab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11454,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "xlsx": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
